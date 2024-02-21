@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 dotenv.config();
 
+import connectDB from "./config/databaseConnection.js";
 import userRoutes from "./routes/userRoutes.js";
 import { notFound, errorHandler } from "./middlewares/errorMiddleware.js";
 
@@ -17,5 +18,6 @@ app.use(notFound);
 app.use(errorHandler);
 
 app.listen(port, () => {
+    connectDB();
     console.log(`Server is up at ${port}`);
 });
