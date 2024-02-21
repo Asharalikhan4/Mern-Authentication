@@ -9,6 +9,9 @@ import { notFound, errorHandler } from "./middlewares/errorMiddleware.js";
 const port = process.env.PORT || 8080;
 const app = express();
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.get("/", (req, res) => {
     res.send("Hello from server side");
 });
