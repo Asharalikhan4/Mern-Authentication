@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import FormContainer from "../components/FormComponents";
 import { useLoginMutation } from "../redux/userApiSlice";
 import { setCredentials } from "../redux/authSlice";
+import Loader from "../components/Loader";
 import { toast } from "react-toastify";
 
 const LoginScreen = () => {
@@ -59,6 +60,8 @@ const LoginScreen = () => {
                         onChange={(e) => setPassword(e.target.value)}
                     ></Form.Control>
                 </Form.Group>
+
+                { isLoading && <Loader /> }
 
                 <Button type="submit" variant="primary" className="mt-3">
                     Sign In
